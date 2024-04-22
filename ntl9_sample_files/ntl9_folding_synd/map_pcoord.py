@@ -13,4 +13,4 @@ if __name__ == '__main__':
     pcoord = model.backmap(np.asarray([int(sys.argv[1])]), 'default')
     
     # Print it out
-    print(f'{pcoord[0,0]}') 
+    print(f'{pcoord[0, 0]}') 

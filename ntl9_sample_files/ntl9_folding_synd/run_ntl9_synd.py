@@ -16,8 +16,8 @@ restart = np.atleast_1d(np.loadtxt('parent.txt', dtype=int))
 discrete_trajectory = model.generate_trajectory(
     initial_states=np.array([restart[-1]]),
     # 1 step is 10 ps, including first frame
-    n_steps=11
-)
+    n_steps=31
+)[:,::3]
 
 # print(f'discrete: {discrete_trajectory}')
 #
@@ -42,7 +42,7 @@ atomistic_trajectory = model.backmap(discrete_trajectory[:, :], 'full_coordinate
 # import MDAnalysis as mda
 # from MDAnalysis.coordinates.memory import MemoryReader
 
-# u = mda.Universe('synd_model/ntl9.pdb')
+# u = mda.Universe('ntl9.pdb')
 # u.load_new(atomistic_trajectory[0], format=MemoryReader)
 # u.select_atoms('all').write('seg.nc', frames='all')
 

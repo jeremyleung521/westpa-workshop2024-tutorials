@@ -130,7 +130,7 @@ def run_w_trace_automatically(h5file, n_iter):
 
 if __name__ == "__main__":
     # If you need to run any of these on your own.
-    calc_aggr_sim_time('west.h5', tau=10)
+    calc_aggr_sim_time('west.h5', tau=300)
     calc_clock_time('west.h5')
 
     # This generates a list ['diala_history_80_{5,10,20...}_multi/multi.h5']
