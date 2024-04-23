@@ -1,6 +1,6 @@
 # Sample simulation files for NTL9 SynD
 
-Last modified April 18th, 2024
+Last modified April 23rd, 2024
 
 ## Setup
 The simulation can be run using the conda environment `westpa-workshop2024` using the `env.yaml` file.
