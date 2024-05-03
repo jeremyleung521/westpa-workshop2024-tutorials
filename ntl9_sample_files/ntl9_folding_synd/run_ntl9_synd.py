@@ -3,7 +3,7 @@ import pickle
 from synd.core import load_model
 
 # Loading in the SynD Model
-model = load_model('ntl9_folding.synd')
+model = load_model('ntl9_folding_mod.synd')
 
 # Resetting the random number generator, so we're actually create distinct trajectories 
 model.rng = np.random.default_rng()

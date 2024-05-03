@@ -10,7 +10,7 @@ mkdir -pv $WEST_CURRENT_SEG_DATA_REF
 cd $WEST_CURRENT_SEG_DATA_REF
 
 # Soft-link necessary files
-ln -sv $WEST_SIM_ROOT/ntl9_folding_synd/ntl9_folding.synd .
+ln -sv $WEST_SIM_ROOT/ntl9_folding_synd/ntl9_folding_mod.synd .
 ln -sv $WEST_SIM_ROOT/ntl9_folding_synd/run_ntl9_synd.py .
 ln -sv $WEST_SIM_ROOT/ntl9_folding_synd/ntl9.pdb .
 
