@@ -10,7 +10,7 @@ mkdir -pv $WEST_CURRENT_SEG_DATA_REF
 cd $WEST_CURRENT_SEG_DATA_REF
 
 # Soft-link necessary files
-ln -sv $WEST_SIM_ROOT/ntl9_folding_synd/ntl9_folding.synd .
+ln -sv $WEST_SIM_ROOT/ntl9_folding_synd/ntl9_folding_mod.synd ./ntl9_folding.synd
 ln -sv $WEST_SIM_ROOT/ntl9_folding_synd/run_ntl9_synd.py .
 ln -sv $WEST_SIM_ROOT/ntl9_folding_synd/ntl9.pdb .
 
@@ -30,6 +30,7 @@ cat pcoord.txt > $WEST_PCOORD_RETURN
 cat pcoord.txt > $WEST_RMSD_RETURN
 cat xyz.npy > $WEST_COORD_RETURN
 cat seg.txt > $WEST_STATE_INDICES_RETURN
+cat sasa.dat > $WEST_SASA_RETURN
 
 # For HDF5 Framework, Note "restart" file is a text file (of cluster id) for SynD
 cp ntl9.pdb $WEST_TRAJECTORY_RETURN

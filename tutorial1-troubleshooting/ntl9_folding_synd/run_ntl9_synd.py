@@ -38,6 +38,9 @@ pcoord_trajectory = model.backmap(discrete_trajectory[:, :], 'default')[0]
 # Output xyz coordinates, multiply by 10 to turn into Angstroms
 atomistic_trajectory = model.backmap(discrete_trajectory[:, :], 'full_coordinates')[0] * 10
 
+# Output SASA, multiple by 100 to turn from nm^2 to Angstrom^2
+sasa_trajectory = model.backmap(discrete_trajectory[:, :], 'sasa')[0] * 100
+
 # If you want a trajectory file 
 # import MDAnalysis as mda
 # from MDAnalysis.coordinates.memory import MemoryReader
@@ -50,3 +53,5 @@ atomistic_trajectory = model.backmap(discrete_trajectory[:, :], 'full_coordinate
 np.savetxt('seg.txt', discrete_trajectory[0], fmt='%d')
 np.savetxt('pcoord.txt', pcoord_trajectory, fmt='%2.8f')
 np.save('xyz.npy', atomistic_trajectory)
+np.savetxt('sasa.dat', sasa_trajectory)
+
