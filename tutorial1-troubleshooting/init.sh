@@ -12,6 +12,6 @@ mkdir   seg_logs traj_segs istates
 #--sstate-file "sbstates/sstates.txt" \
 
 w_init --bstate-file "sbstates/bstates.txt" \
-        --tstate 'folded,0.5' \
+        --tstate 'folded,10' \
 	--segs-per-state 1 \
 	--work-manager=threads "$@" |& tee init.log

@@ -33,7 +33,7 @@ discrete_trajectory = model.generate_trajectory(
 # )
 
 # Output pcoord
-pcoord_trajectory = model.backmap(discrete_trajectory[:, :], 'default')[0]
+pcoord_trajectory = model.backmap(discrete_trajectory[:, :], 'default')[0] * -1
 
 # Output xyz coordinates, multiply by 10 to turn into Angstroms
 atomistic_trajectory = model.backmap(discrete_trajectory[:, :], 'full_coordinates')[0] * 10
