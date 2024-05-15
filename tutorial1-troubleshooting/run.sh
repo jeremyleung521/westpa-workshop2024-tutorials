@@ -8,4 +8,4 @@ rm -f west.log
 
 # Run w_run
 #w_run "$@" > west.log
-w_run --work-manager processes "$@" > west.log
+w_run --work-manager processes "$@" |& tee west.log
