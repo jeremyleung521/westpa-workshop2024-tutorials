@@ -39,15 +39,15 @@ pcoord_trajectory = model.backmap(discrete_trajectory[:, :], 'default')[0]
 atomistic_trajectory = model.backmap(discrete_trajectory[:, :], 'full_coordinates')[0] * 10
 
 # Output SASA, multiple by 100 to turn from nm^2 to Angstrom^2
-sasa_trajectory = model.backmap(discrete_trajectory[:, :], 'sasa')[0] * 100
+sasa_trajectory = model.backmap(discrete_trajectory[:, :], 'sasa')[0] * 1000
 
 # If you want a trajectory file 
-# import MDAnalysis as mda
-# from MDAnalysis.coordinates.memory import MemoryReader
+import MDAnalysis as mda
+from MDAnalysis.coordinates.memory import MemoryReader
 
-# u = mda.Universe('ntl9.pdb')
-# u.load_new(atomistic_trajectory[0], format=MemoryReader)
-# u.select_atoms('all').write('seg.nc', frames='all')
+u = mda.Universe('ntl9.pdb')
+u.load_new(atomistic_trajectory, format=MemoryReader)
+u.select_atoms('all').write('seg.nc', frames='all')
 
 # Outputting clusters_ids into `seg.txt`, pcoord into `pcoord.txt`, xyz into `xyz.npy`
 np.savetxt('seg.txt', discrete_trajectory[0], fmt='%d')
