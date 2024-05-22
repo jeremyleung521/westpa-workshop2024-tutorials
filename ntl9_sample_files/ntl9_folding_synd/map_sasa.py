@@ -10,7 +10,7 @@ if __name__ == '__main__':
     model = load_model('ntl9_folding.synd')
 
     # Calculate the Pcoord for the input
-    pcoord = model.backmap(np.asarray([int(sys.argv[1])]), 'sasa')
+    pcoord = model.backmap(np.asarray([int(sys.argv[1])]), 'sasa') * 100
     
     # Print it out
-    print(f'{pcoord[0, 0]}') 
+    print(f'{pcoord[0]}') 
