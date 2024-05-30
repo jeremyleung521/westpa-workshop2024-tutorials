@@ -1,0 +1,31 @@
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.1.0
+    hooks:
+    -   id: end-of-file-fixer
+        types: [python]
+    -   id: trailing-whitespace
+        types: [python]
+
+  - repo: https://github.com/psf/black
+    rev: 22.3.0
+    hooks:
+      - id: black
+        language_version: python3
+        exclude: > 
+          (?x)(
+              versioneer.py
+              | _version.py
+              | doc
+          )
+  - repo: https://github.com/pycqa/flake8
+    rev: 4.0.1
+    hooks:
+    -   id: flake8
+        exclude: > 
+          (?x)(
+              versioneer.py
+              | tests/conftest.py
+              | _version.py
+              | doc
+          )
