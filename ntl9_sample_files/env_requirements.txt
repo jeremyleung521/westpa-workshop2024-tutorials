@@ -1,0 +1,15 @@
+scikit-learn<1.1
+westpa
+mdtraj<=1.9.9
+ipython
+nglview
+networkx
+MDAnalysis
+rich
+pyemma
+deeptime<0.4.4
+wedap
+synd
+lpath-md
+ray
+../tutorial3-rates/msm_we/
