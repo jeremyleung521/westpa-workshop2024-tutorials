@@ -16,10 +16,10 @@ dependencies:
   - networkx
   - MDAnalysis
   - rich
-  - pyemma
-  - deeptime<0.4.4
   - pip
   - pip:
+    - pyemma
+    - deeptime<0.4.4
     - wedap
     - synd
     - lpath-md
