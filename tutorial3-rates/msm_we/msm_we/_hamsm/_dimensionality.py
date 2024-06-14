@@ -1,9 +1,6 @@
-from sklearn.decomposition import IncrementalPCA as iPCA
 import concurrent
 import multiprocessing as mp
 import numpy as np
-from sklearn.decomposition import PCA
-from deeptime.decomposition import TICA, VAMP
 from msm_we._logging import log, ProgressBar
 
 from typing import TYPE_CHECKING
@@ -83,6 +80,8 @@ class DimensionalityReductionMixin:
 
     def do_full_pca(self: "modelWE", arg):
 
+        from sklearn.decomposition import IncrementalPCA as iPCA
+
         ipca, iteration, processCoordinates, components_for_var = arg
 
         iter_coords = self.get_iter_coordinates(iteration)
@@ -140,6 +139,8 @@ class DimensionalityReductionMixin:
 
         # log.debug(self.coordSet)
         if self.dimReduceMethod == "pca":
+            
+            from sklearn.decomposition import IncrementalPCA as iPCA
 
             # Do this in a streaming way, iteration by iteration
             # First, do a "rough" PCA on the last 10% of the data to get the number of components that explain the
@@ -286,14 +287,18 @@ class DimensionalityReductionMixin:
             weights = np.array(weights)
 
             if self.dimReduceMethod == "tica":
+                from deeptime.decomposition import TICA
+
                 self.coordinates = TICA(
                     lagtime=1, var_cutoff=variance_cutoff, scaling="kinetic_map"
                 )
             elif self.dimReduceMethod == "vamp":
+                from deeptime.decomposition import VAMP
                 self.coordinates = VAMP(
                     lagtime=1, var_cutoff=variance_cutoff, scaling="kinetic_map"
                 )
             elif self.dimReduceMethod == "batch-pca":
+                from deeptime.decomposition import PCA 
                 self.coordinates = PCA(n_components=None)
 
             # self.coordinates.fit(trajs)

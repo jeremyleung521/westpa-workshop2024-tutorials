@@ -1,7 +1,6 @@
 """Catch-all for code from the original msm_we implementation that is no longer supported, but kept around for legacy
 purposes/in case it becomes useful in the future."""
 from msm_we.msm_we import modelWE
-import pyemma
 
 
 class ExtendedModelWE(modelWE):
@@ -44,6 +43,8 @@ class ExtendedModelWE(modelWE):
 
         log.debug(f"Found saved clusters -- loading from {clusterFile}")
 
+        import pyemma
+ 
         self.clusters = pyemma.load(clusterFile)
         self.n_clusters = np.shape(self.clusters.clustercenters)[0]
 
