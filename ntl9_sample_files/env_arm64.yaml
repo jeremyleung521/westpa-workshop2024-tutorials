@@ -19,7 +19,7 @@ dependencies:
   - pip
   - pip:
     - pyemma
-    - deeptime<0.4.4
+    - deeptime
     - wedap
     - synd
     - lpath-md
