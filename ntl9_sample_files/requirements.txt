@@ -7,7 +7,6 @@ nglview
 networkx
 MDAnalysis
 rich
-pyemma
 deeptime
 wedap
 synd
