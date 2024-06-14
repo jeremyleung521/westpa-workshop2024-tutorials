@@ -3,8 +3,8 @@ channels:
   - conda-forge
   - defaults
 dependencies:
-  - python<=3.11
-  - scikit-learn<1.1
+  - python
+  - scikit-learn
   - westpa
   - mdtraj<=1.9.9
   - ipython
@@ -16,10 +16,9 @@ dependencies:
   - networkx
   - MDAnalysis
   - rich
+  - deeptime
   - pip
   - pip:
-    - pyemma
-    - deeptime
     - wedap
     - synd
     - lpath-md
