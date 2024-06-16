@@ -1,0 +1,58 @@
+diff --git a/tutorial1-troubleshooting/ntl9_folding_synd/run_ntl9_synd.py b/tutorial1-troubleshooting/ntl9_folding_synd/run_ntl9_synd.py
+index fba4330..902368e 100755
+--- a/tutorial1-troubleshooting/ntl9_folding_synd/run_ntl9_synd.py
++++ b/tutorial1-troubleshooting/ntl9_folding_synd/run_ntl9_synd.py
+@@ -33,7 +33,7 @@ discrete_trajectory = model.generate_trajectory(
+ # )
+ 
+ # Output pcoord
+-pcoord_trajectory = model.backmap(discrete_trajectory[:, :], 'default')[0] * -1
++pcoord_trajectory = model.backmap(discrete_trajectory[:, :], 'default')[0]
+ 
+ # Output xyz coordinates, multiply by 10 to turn into Angstroms
+ atomistic_trajectory = model.backmap(discrete_trajectory[:, :], 'full_coordinates')[0] * 10
+diff --git a/tutorial1-troubleshooting/westpa_scripts/get_pcoord.sh b/tutorial1-troubleshooting/westpa_scripts/get_pcoord.sh
+index f72ca66..8cfd350 100755
+--- a/tutorial1-troubleshooting/westpa_scripts/get_pcoord.sh
++++ b/tutorial1-troubleshooting/westpa_scripts/get_pcoord.sh
+@@ -1,28 +1,30 @@
+ #!/bin/bash
+-
+ cd $WEST_SIM_ROOT/ntl9_folding_synd
+ 
++# >>>>> Make temporary files <<<<<
++PCOORD=$(mktemp)
++TEMP_NAME=$(basename $(mktemp -u))
++
+ # Grab Cluster ID
+ CLUSTERID=$(basename $WEST_STRUCT_DATA_REF)
+ 
+ # >>>>> Calculate Pcoord <<<<<
+ # This takes in a cluster number as argument and returns the pcoord.
+-python map_pcoord.py $CLUSTERID > pcoord.dat
+-# python map_sasa.py $CLUSTERID > pcoord.dat
++python map_pcoord.py $CLUSTERID > $PCOORD
+ 
+ # >>>>> Backmap for a coordinate file <<<<<
+ # This takes in cluster number and file name as arguments
+ # and outputs a {file name}.nc coordinate file.
+-python map_coord.py $CLUSTERID seg
++python map_coord.py $CLUSTERID $TEMP_NAME
+ 
+ # >>>>> Return Pcoord <<<<<
+-cat pcoord.dat > $WEST_PCOORD_RETURN
++cat $PCOORD > $WEST_PCOORD_RETURN
++rm $PCOORD
+ 
+ # >>>>> For HDF5 Framework <<<<<
+ cp ntl9.pdb $WEST_TRAJECTORY_RETURN
+-cp seg.nc $WEST_TRAJECTORY_RETURN/seg.nc
+-rm seg.nc
++cp $TEMP_NAME.nc $WEST_TRAJECTORY_RETURN/seg.nc
++rm $TEMP_NAME.nc
+ 
+ # cp ntl9.pdb $WEST_RESTART_RETURN
+-cat $CLUSTERID > $WEST_RESTART_RETURN/parent.txt
+-
++cat $CLUSTERID > $WEST_RESTART_RETURN/parent.txt
+\ No newline at end of file
