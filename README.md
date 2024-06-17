@@ -14,7 +14,7 @@ A repository with WESTPA Workshop 2024 Tutorial Files
 * Select the "WESTPA 12-core 6 hours"
 
 ## Setting up files and stuff
-2.	Run the following:
+2.	Open a terminal and run the following:
 *	``git clone https://github.com/jeremyleung521/h2p-quickstart``
 *	``source h2p-quickstart/run_bash.sh``
 *	Refresh your browser page 
