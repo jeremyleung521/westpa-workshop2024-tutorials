@@ -40,5 +40,3 @@ Notes:
 * File -> Open Notebook, paste GitHub Link. Select Notebook.
 * Notebooks: 
 https://github.com/jeremyleung521/westpa-workshop2024-colab
-
-
