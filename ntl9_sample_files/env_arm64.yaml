@@ -1,0 +1,30 @@
+name: westpa-workshop2024
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python
+  - scikit-learn
+  - westpa
+  - mdtraj<=1.9.9
+  - ipython
+  - jupyterlab
+  - notebook
+  - ipywidgets
+  - ipykernel
+  - nglview
+  - networkx
+  - MDAnalysis
+  - rich
+  - deeptime
+  - ipympl
+  - pip
+  - pip:
+    - wedap
+    - synd
+    - lpath-md
+    - ray
+    - ../tutorial3-rates/msm_we/
+variables:
+  OMP_NUM_THREADS: 1
+  RAY_worker_register_timeout_seconds: 60

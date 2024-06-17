@@ -11,7 +11,8 @@ CLUSTERID=$(basename $WEST_STRUCT_DATA_REF)
  
 # >>>>> Calculate Pcoord <<<<<
 # This takes in a cluster number as argument and returns the pcoord.
-python map_pcoord.py $CLUSTERID > $PCOORD
+#python map_pcoord.py $CLUSTERID > $PCOORD
+python map_sasa.py $CLUSTERID > $PCOORD
  
 # >>>>> Backmap for a coordinate file <<<<<
 # This takes in cluster number and file name as arguments
