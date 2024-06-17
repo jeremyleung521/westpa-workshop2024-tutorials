@@ -38,7 +38,7 @@ pcoord_trajectory = model.backmap(discrete_trajectory[:, :], 'default')[0] * -1
 # Output xyz coordinates, multiply by 10 to turn into Angstroms
 atomistic_trajectory = model.backmap(discrete_trajectory[:, :], 'full_coordinates')[0] * 10
 
-# Output SASA, multiple by 100 to turn from nm^2 to Angstrom^2
+# Output SASA, multiply by 100 to turn from nm^2 to Angstrom^2
 sasa_trajectory = model.backmap(discrete_trajectory[:, :], 'sasa')[0] * 100
 
 # If you want a trajectory file 
