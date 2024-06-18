@@ -19,7 +19,7 @@ dimreduce_method = 'vamp'
 # Number of MSM microstates to initially put in each stratum/WE bin
 clusters_per_stratum = 3
 # Boundaries of the basis/target, in progress coordinate space Unit
-pcoord_bounds = { 'basis':[[10.0, 1000]], 'target':[[0, 1.0]] }
+pcoord_bounds = { 'basis':[[10.0, 20.0]], 'target':[[0, 1.0]] }
 # WESTPA resampling time:
 tau = 3e-10 
 
@@ -61,9 +61,4 @@ model.get_Tmatrix()
 model.get_steady_state()
 model.get_steady_state_target_flux()
 with open('Outputs/SteadyState_Flux.obj', 'wb') as outfile:
-    pickle.dump(model, outfile)
-
-model.get_flux()
-
-with open('Outputs/Anlysis_Done.obj', 'wb') as outfile:
     pickle.dump(model, outfile)
