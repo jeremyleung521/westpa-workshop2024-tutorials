@@ -4,6 +4,7 @@
 # source $AMBERHOME/amber.sh
 # . ~/.bashrc
 # conda activate westpa-workshop2024
+source ~/westpa-workshop2024/bin/activate
 
 # Set WESTPA-related variables
 export WEST_SIM_ROOT="$PWD"
