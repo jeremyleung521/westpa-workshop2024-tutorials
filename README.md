@@ -39,4 +39,4 @@ Notes:
 * Run on Google Colab: https://colab.research.google.com/
 * File -> Open Notebook, paste GitHub Link. Select Notebook.
 * Notebooks: 
-https://github.com/jeremyleung521/westpa-workshop2024-colab
+https://github.com/westpa/westpa-workshop2024-tutorials
