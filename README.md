@@ -3,6 +3,11 @@ https://www.github.com/westpa/westpa-workshop2024-tutorials
 
 A repository with WESTPA Workshop 2024 Tutorial Files
 
+# Companion software documentation
+* [WEDAP](https://darianyang.github.io/wedap) : For Weighted Ensemble Data Analysis and Plotting
+* [LPATH](https://lpath.readthedocs.io/en/latest/) : Linguistics Pathway Analysis of Trajectories with Hierarchical clustering
+* [westpa.analysis](https://westpa.readthedocs.io/en/latest/documentation/analysis/) : An API to facilitate the analysis of WESTPA simulation data
+* [msm_we](https://msm-we.readthedocs.io/en/latest/) : For building haMSMs of your WE simulation data
 
 # Quick Start Guide
 * Video Guide: https://youtu.be/iU_cUbZDvfU
